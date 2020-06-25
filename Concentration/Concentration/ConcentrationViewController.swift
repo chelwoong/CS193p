@@ -126,7 +126,6 @@ extension Int {
         } else {
             return 0
         }
-        
     }
 }
 
