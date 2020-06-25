@@ -9,9 +9,28 @@
 import Foundation
 
 class Concentration {
-  
-  var cards = [Card]()
-  var indexOfOneAndOnlyFaceUpCard: Int?
+  private(set) var cards = [Card]()
+  var indexOfOneAndOnlyFaceUpCard: Int? {
+    get {
+      var foundIndex: Int?
+      for cardIndex in cards.indices {
+        if cards[cardIndex].isFaceUp {
+          if self.indexOfOneAndOnlyFaceUpCard == nil {
+            foundIndex = cardIndex
+          } else {
+            // 이미 찾은 애가 있으면 그 다음번은 그냥 nil 반환
+            return nil
+          }
+        }
+      }
+      return foundIndex
+    }
+    set {
+      for index in cards.indices {
+        cards[index].isFaceUp = (index == newValue)
+      }
+    }
+  }
   
   init(numberOfPairsOfCards: Int) {
     for _ in 0..<numberOfPairsOfCards {
@@ -26,7 +45,7 @@ class Concentration {
         let card = cards.remove(at: 0)
         newCards.append(card)
       } else {
-        let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
+        let randomIndex = cards.count.arc4random
         let card = cards.remove(at: randomIndex)
         newCards.append(card)
       }
@@ -41,13 +60,20 @@ class Concentration {
         cards[index].isMatched = true
       }
       cards[index].isFaceUp = true
-      indexOfOneAndOnlyFaceUpCard = nil
     } else {
-      for downFlipIndex in cards.indices {
-        cards[downFlipIndex].isFaceUp = false
-      }
-      cards[index].isFaceUp = true
       indexOfOneAndOnlyFaceUpCard = index
+    }
+  }
+}
+
+extension Int {
+  var arc4random: Int {
+    if self > 0 {
+      return Int(arc4random_uniform(UInt32(self)))
+    } else if self < 0 {
+      return -Int(arc4random_uniform(UInt32(abs(self))))
+    } else {
+      return 0
     }
   }
 }
