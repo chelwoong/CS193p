@@ -1,5 +1,18 @@
 # CHAPTER3
 
+- [stride](#stride)
+- [Tuple](#tuple)
+- [Computed Property](#computed-property)
+- [Access Control](#access-control)
+- [Assertion](#assertion)
+- [Extensions](#extensions)
+- [enum](#enum)
+- [Optional](#optional)
+- [Data Structures](#data-structures)
+  - [Class](#class)
+  - [Memory Management](#memory-management)
+  - [struct](#struct)
+
 ## stride
 
 `stride` 는 셀 수 있는 범위를 지정해주 는 메소드이다.
