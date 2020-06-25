@@ -8,10 +8,19 @@
 
 import Foundation
 
-struct Card {
+struct Card: Hashable {
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(identifire)
+  }
+  
+  static func ==(lhs: Self, rhs: Self) -> Bool {
+    return lhs.identifire == rhs.identifire
+  }
+  
   var isFaceUp = false
   var isMatched = false
-  var identifire: Int
+  private var identifire: Int
   
   private static var identifireFactory = 0
   
@@ -21,6 +30,6 @@ struct Card {
   }
   
   init(identifire: Int) {
-    self.identifire = Card.getUniqueIdentifire()
+    self.identifire = identifire
   }
 }

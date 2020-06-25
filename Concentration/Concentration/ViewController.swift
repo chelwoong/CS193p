@@ -16,7 +16,7 @@ class ViewController: UIViewController {
   //var emojiChoices = ["🦇", "😱", "🙀", "👿", "🎃", "👻", "🍭", "🍬", "🍎"]
   private var flipCount = 0 {
     didSet {
-      flipCountLabel.text = "Flip Count: \(flipCount)"
+      updateFlipCountLabel()
     }
   }
   private var emojiChoices = ["👿", "🎃", "👻", "🍭", "🍬", "🍎"]
@@ -25,15 +25,9 @@ class ViewController: UIViewController {
   @IBAction private func touchCard(_ sender: UIButton) {
     if let cardIndex = cardButtons.firstIndex(of: sender) {
       flipCount += 1
-      if cardEmoji[game.cards[cardIndex].identifire] == nil {
-        if emojiChoices.count == 1 {
-          let emoji = emojiChoices.remove(at: 0)
-          cardEmoji[game.cards[cardIndex].identifire] = emoji
-        } else {
-          let emoji = emojiChoices.remove(at: Int(arc4random_uniform(UInt32(emojiChoices.count))))
-          cardEmoji[game.cards[cardIndex].identifire] = emoji
-        }
-        
+      if cardEmoji[game.cards[cardIndex]] == nil, !emojiChoices.isEmpty {
+        let emoji = emojiChoices.remove(at: emojiChoices.count.arc4random)
+        cardEmoji[game.cards[cardIndex]] = emoji
       }
       game.chooseCard(at: cardIndex)
       updateViewFromModel()
@@ -55,7 +49,7 @@ class ViewController: UIViewController {
   }
   
   private func emoji(for card: Card) -> String {
-    return cardEmoji[card.identifire] ?? "?"
+    return cardEmoji[card] ?? "?"
   }
   
   override func viewDidLoad() {
