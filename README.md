@@ -6,6 +6,10 @@ Challenge iOS with Paul's lecture on stanford
 ## Contents
 #### Concentration
 - [CHAPTER 1](#chapter-1)
+- [CHAPTER 2](#chapter-2)
+- [CHAPTER 3](#chapter-3)
+- [CHAPTER 4](#chapter-4)
+
 
 
 # CHAPTER 1
@@ -14,3 +18,36 @@ Challenge iOS with Paul's lecture on stanford
 - **Optional**
 - **Accessing and Modifying a String**
 - **Customizing Initialization**
+
+# [CHAPTER 2](./CHAPTER2)
+- MVC
+- Struct vs Class
+- Sequence
+- static
+- lazy
+- indicies
+
+# [CHAPTER 3](./CHAPTER3)
+- stride
+- tuple
+- computed property
+- access control
+- assertion
+- extensions
+- enum
+- optional
+- optional chaining
+- data structures
+  - class
+  - struct
+  - enum
+  - protocol
+- Memory management
+
+
+# [CHAPTER 4](./CHAPTER4)
+- Quick demo of mutationg
+- protocols
+- String
+- NSAttributedString
+- Closures (and functions as type in general)
