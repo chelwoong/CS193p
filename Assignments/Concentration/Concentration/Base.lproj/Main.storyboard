@@ -190,29 +190,39 @@
                                     <action selector="touchNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oSH-t2-JP5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfx-jq-3hY">
-                                <rect key="frame" x="0.0" y="756" width="414" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BB0-6m-HFR">
+                                <rect key="frame" x="64" y="756" width="286.5" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfx-jq-3hY">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfc-BB-y7l">
+                                        <rect key="frame" x="144" y="0.0" width="142.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cwI-1V-tyi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DBY-3P-BDq"/>
-                            <constraint firstItem="Kfx-jq-3hY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IpJ-uh-HPT"/>
                             <constraint firstItem="awf-fY-DKd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ONp-Qy-7WF"/>
                             <constraint firstItem="awf-fY-DKd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Tms-eM-ESQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cwI-1V-tyi" secondAttribute="trailing" id="g79-Wi-iy7"/>
                             <constraint firstItem="cwI-1V-tyi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gJC-cU-b2o"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kfx-jq-3hY" secondAttribute="trailing" id="gXC-Wh-sB7"/>
-                            <constraint firstItem="awf-fY-DKd" firstAttribute="top" secondItem="Kfx-jq-3hY" secondAttribute="bottom" constant="10" id="p32-sg-uYB"/>
-                            <constraint firstItem="Kfx-jq-3hY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cwI-1V-tyi" secondAttribute="bottom" constant="50" id="sah-fJ-VXV"/>
+                            <constraint firstItem="BB0-6m-HFR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lju-vv-9Xr"/>
+                            <constraint firstItem="awf-fY-DKd" firstAttribute="top" secondItem="BB0-6m-HFR" secondAttribute="bottom" constant="10" id="muR-yW-Erk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="Kfx-jq-3hY" id="VY1-sN-h98"/>
+                        <outlet property="scoreLabel" destination="vfc-BB-y7l" id="e5V-S6-lsj"/>
                         <outletCollection property="cardButtons" destination="TzC-GD-Fo7" collectionClass="NSMutableArray" id="oPf-Ok-2AH"/>
                         <outletCollection property="cardButtons" destination="xV8-md-GiI" collectionClass="NSMutableArray" id="SEs-8f-moQ"/>
                         <outletCollection property="cardButtons" destination="z8z-XY-GrR" collectionClass="NSMutableArray" id="EKe-cL-URw"/>

@@ -20,6 +20,9 @@ class Concentration {
       }
     }
   }
+  private(set) var flipCount = 0
+  private(set) var score = 0
+  private var choosedIndex = Set<Int>()
   
   init(numberOfPairsOfCards: Int) {
     for _ in 0..<numberOfPairsOfCards {
@@ -40,6 +43,9 @@ class Concentration {
       }
     }
     cards = newCards
+    score = 0
+    flipCount = 0
+    choosedIndex = Set<Int>()
   }
   
   func chooseCard(at index: Int) {
@@ -47,11 +53,23 @@ class Concentration {
       if cards[matchIndex] == cards[index] {
         cards[matchIndex].isMatched = true
         cards[index].isMatched = true
+        score += 2
+      } else {
+        if choosedIndex.contains(matchIndex) {
+          score -= 1
+        }
+        if choosedIndex.contains(index) {
+          score -= 1
+        }
       }
+      
+      choosedIndex.insert(matchIndex)
+      choosedIndex.insert(index)
       cards[index].isFaceUp = true
     } else {
       indexOfOneAndOnlyFaceUpCard = index
     }
+    flipCount += 1
   }
 }
 

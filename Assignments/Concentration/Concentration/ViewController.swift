@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
   
+  // MARK: - Constants
+  
   enum Theme: CaseIterable {
     case halloween
     case sports
@@ -52,13 +54,16 @@ class ViewController: UIViewController {
     }
   }
   
+  // MARK: - Properties
+  
   lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
   var currentTheme: Theme = .halloween {
     didSet {
-      view.backgroundColor = currentTheme.backgroundColor
       for cardButton in cardButtons {
         cardButton.backgroundColor = currentTheme.tintColor
       }
+      view.backgroundColor = currentTheme.backgroundColor
+      emojiChoices = currentTheme.emojiChoices
       updateViewFromModel()
     }
   }
@@ -68,42 +73,16 @@ class ViewController: UIViewController {
       updateFlipCountLabel()
     }
   }
-  
-  private lazy var emojiChoicesIndex = [Int](0..<currentTheme.emojiChoices.count)
-  private var flipCount = 0 {
+  @IBOutlet weak var scoreLabel: UILabel! {
     didSet {
-      updateFlipCountLabel()
-    }
-  }
-
-  private var cardEmoji = [Card:Int]()
-  
-  private func updateFlipCountLabel() {
-//    let attributes: [NSAttributedString.Key:Any] = [
-//      .strokeWidth : 5.0,
-//      .strokeColor : currentTheme.tintColor
-//    ]
-//    let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
-//    flipCountLabel.attributedText = attributedString
-  }
-  
-  @IBAction func touchNewGame(_ sender: UIButton) {
-    if let randomTheme = Theme.allCases.randomElement() {
-      currentTheme = randomTheme
+      updateScoreLabel()
     }
   }
   
-  @IBAction private func touchCard(_ sender: UIButton) {
-    if let cardIndex = cardButtons.firstIndex(of: sender) {
-      flipCount += 1
-      if cardEmoji[game.cards[cardIndex]] == nil, !emojiChoicesIndex.isEmpty {
-        let emojiIndex = emojiChoicesIndex.remove(at: emojiChoicesIndex.count.arc4random)
-        cardEmoji[game.cards[cardIndex]] = emojiIndex
-      }
-      game.chooseCard(at: cardIndex)
-      updateViewFromModel()
-    }
-  }
+  private lazy var emojiChoices = currentTheme.emojiChoices
+  private var cardEmoji = [Card:String]()
+  
+  // MARK: - Methods
   
   private func updateViewFromModel() {
     for index in cardButtons.indices {
@@ -117,14 +96,47 @@ class ViewController: UIViewController {
         button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : currentTheme.tintColor
       }
     }
+    updateFlipCountLabel()
+    updateScoreLabel()
+  }
+  
+  private func updateFlipCountLabel() {
+//    let attributes: [NSAttributedString.Key:Any] = [
+//      .strokeWidth : 5.0,
+//      .strokeColor : currentTheme.tintColor
+//    ]
+//    let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+//    flipCountLabel.attributedText = attributedString
+    flipCountLabel.text = "Flips: \(game.flipCount)"
+  }
+  
+  private func updateScoreLabel() {
+    scoreLabel.text = "Score: \(game.score)"
+  }
+  
+  @IBAction func touchNewGame(_ sender: UIButton) {
+    if let randomTheme = Theme.allCases.randomElement() {
+      game = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
+      currentTheme = randomTheme
+    }
+  }
+  
+  @IBAction private func touchCard(_ sender: UIButton) {
+    if let cardIndex = cardButtons.firstIndex(of: sender) {
+      if cardEmoji[game.cards[cardIndex]] == nil, !emojiChoices.isEmpty {
+        let emojiIndex = emojiChoices.remove(at: emojiChoices.count.arc4random)
+        cardEmoji[game.cards[cardIndex]] = emojiIndex
+      }
+      game.chooseCard(at: cardIndex)
+      updateViewFromModel()
+    }
   }
   
   private func emoji(for card: Card) -> String {
-    if let emojiIndex = cardEmoji[card] {
-      return currentTheme.emojiChoices[emojiIndex]
-    }
-    return "?"
+    return cardEmoji[card] ?? "?"
   }
+  
+  // MARK: - View Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
