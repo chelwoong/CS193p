@@ -10,6 +10,7 @@ import Foundation
 
 struct SetCardGame {
     var cards = [Card]()
+    var playingCards = [Card]()
     
     init() {
         for shapeCount in Card.ShapeCount.all {
@@ -22,14 +23,10 @@ struct SetCardGame {
                 }
             }
         }
-        for _ in 0..<24 {
+        for _ in 0..<12 {
             if let card = cards.filter({ !$0.onGame }).randomElement(), let index = cards.firstIndex(of: card) {
                 cards[index].onGame = true
-            }
-        }
-        for _ in 0..<12 {
-            if let card = cards.filter({ $0.onGame && !$0.isFaceUp }).randomElement(), let index = cards.firstIndex(of: card) {
-                cards[index].isFaceUp = true
+                playingCards.append(cards[index])
             }
         }
     }
