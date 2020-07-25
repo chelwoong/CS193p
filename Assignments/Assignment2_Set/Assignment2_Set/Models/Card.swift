@@ -40,11 +40,11 @@ struct Card: Hashable {
     }
     
     enum Pattern {
-        case shadow
+        case dashed
         case fill
         case empty
         
-        static var all: [Pattern] = [.shadow, .empty, .fill]
+        static var all: [Pattern] = [.dashed, .empty, .fill]
     }
     
     static func == (lhs: Card, rhs: Card) -> Bool {
