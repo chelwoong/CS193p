@@ -12,7 +12,7 @@ class ConcentrationViewController: UIViewController {
     
     // MARK: - Constants
     
-    enum Theme: CaseIterable {
+    enum Theme: String, CaseIterable {
         case halloween
         case sports
         case country
@@ -59,9 +59,6 @@ class ConcentrationViewController: UIViewController {
     lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
     var currentTheme: Theme = .halloween {
         didSet {
-            for cardButton in cardButtons {
-                cardButton.backgroundColor = currentTheme.tintColor
-            }
             view.backgroundColor = currentTheme.backgroundColor
             emojiChoices = currentTheme.emojiChoices
             updateViewFromModel()
@@ -85,6 +82,7 @@ class ConcentrationViewController: UIViewController {
     // MARK: - Methods
     
     private func updateViewFromModel() {
+        guard cardButtons != nil else { return }
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
