@@ -9,6 +9,7 @@ Challenge iOS with Paul's lecture on stanford
 - [CHAPTER 2](#chapter-2)
 - [CHAPTER 3](#chapter-3)
 - [CHAPTER 4](#chapter-4)
+- [CHAPTER 5](#chapter-5)
 
 
 
@@ -51,3 +52,19 @@ Challenge iOS with Paul's lecture on stanford
 - String
 - NSAttributedString
 - Closures (and functions as type in general)
+
+# [CHAPTER 5](./CHAPTER5)
+- Thrown Errors
+- Any & AnyObject
+- Custom Drawing
+- Other Interesting Classes
+  - NSObject
+  - NSNumber
+  - Date
+  - Data
+- Views
+- Coordinate System Data Structures
+- View Coordiante System
+- Fonts
+- Drawing Images
+- CustomStringConvertible
