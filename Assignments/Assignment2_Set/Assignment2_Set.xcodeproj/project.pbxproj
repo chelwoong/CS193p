@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CDCAAA224C6AB2E00AE34E5 /* CardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAAA124C6AB2E00AE34E5 /* CardButton.swift */; };
 		4CFD259B24C05D0F00FF11BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD259A24C05D0F00FF11BB /* AppDelegate.swift */; };
 		4CFD259D24C05D0F00FF11BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD259C24C05D0F00FF11BB /* SceneDelegate.swift */; };
 		4CFD259F24C05D0F00FF11BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD259E24C05D0F00FF11BB /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CDCAAA124C6AB2E00AE34E5 /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
 		4CFD259724C05D0F00FF11BB /* Assignment2_Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment2_Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFD259A24C05D0F00FF11BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFD259C24C05D0F00FF11BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CDCAAA024C6AB1F00AE34E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CDCAAA124C6AB2E00AE34E5 /* CardButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4CFD258E24C05D0F00FF11BB = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 		4CFD259924C05D0F00FF11BB /* Assignment2_Set */ = {
 			isa = PBXGroup;
 			children = (
+				4CDCAAA024C6AB1F00AE34E5 /* Views */,
 				4CFD25AE24C0620500FF11BB /* Models */,
 				4CFD259A24C05D0F00FF11BB /* AppDelegate.swift */,
 				4CFD259C24C05D0F00FF11BB /* SceneDelegate.swift */,
@@ -153,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFD25B224C1535B00FF11BB /* SetCardGame.swift in Sources */,
+				4CDCAAA224C6AB2E00AE34E5 /* CardButton.swift in Sources */,
 				4CFD259F24C05D0F00FF11BB /* ViewController.swift in Sources */,
 				4CFD259B24C05D0F00FF11BB /* AppDelegate.swift in Sources */,
 				4CFD259D24C05D0F00FF11BB /* SceneDelegate.swift in Sources */,

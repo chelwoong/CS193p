@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         if let index = setCardGame.playingCards.firstIndex(of: card) {
             setCardGame.playingCards[index].isSelected.toggle()
         }
+        
+        
         updateViewsFromModel()
     }
     
@@ -30,7 +32,6 @@ class ViewController: UIViewController {
     
     func updateViewsFromModel() {
         for (index, card) in setCardGame.playingCards.enumerated() {
-            print(index, card)
             cardButtons[index].card = card
             cardButtons[index].setNeedsDisplay()
         }

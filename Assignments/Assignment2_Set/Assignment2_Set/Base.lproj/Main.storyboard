@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,214 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Assignment2_Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="W8d-Mz-y3c">
+                                <rect key="frame" x="10" y="772" width="128" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8x-Vl-gou">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
+                                        <state key="normal" title="Deal 3 More Cards"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms4-jX-cd6">
+                                        <rect key="frame" x="0.0" y="30" width="128" height="30"/>
+                                        <state key="normal" title="Hint"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJO-92-g1S">
+                                        <rect key="frame" x="0.0" y="60" width="128" height="30"/>
+                                        <state key="normal" title="New Game"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV7-uJ-jpG">
+                                <rect key="frame" x="148" y="772" width="256" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JKY-Sv-t2O">
+                                <rect key="frame" x="10" y="44" width="394" height="728"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CRB-MJ-w8c">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="113"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3r8-Gh-tCR" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v4U-wr-Icn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6D-5f-4eY" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="101" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NuK-QA-xXY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wre-21-vX4" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="202" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zvE-WD-ges"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7a7-Gq-xFY" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="grk-D4-IZf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nZ4-lj-fAl">
+                                        <rect key="frame" x="0.0" y="123" width="394" height="113"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q25-ny-h5M" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EhF-vg-81u"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghz-X9-XSn" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="101" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aSr-5Y-wqx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nix-ko-5H1" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="202" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4DE-dz-1WV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRV-QB-zex" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="91" height="113"/>
+                                                <connections>
+                                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rUN-U7-epy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Cq-gI-uXQ">
+                                        <rect key="frame" x="0.0" y="246" width="394" height="113"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="he9-Mw-r4J" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEb-ty-0rc" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="101" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAH-aX-xxK" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="202" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehi-iw-Z5O" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="91" height="113"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-zB-Q0q">
+                                        <rect key="frame" x="0.0" y="369" width="394" height="113"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRI-9X-RPg" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcH-X2-8xW" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="101" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWB-bx-yLI" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="202" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6kJ-io-cBc" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="91" height="113"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fet-w1-WxR">
+                                        <rect key="frame" x="0.0" y="492" width="394" height="113"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XiB-L3-idK" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wr8-Fl-VwS" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="101" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxp-zj-VTc" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="202" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3G-4V-HPJ" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="91" height="113"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QYo-ZP-KFc">
+                                        <rect key="frame" x="0.0" y="615" width="394" height="113"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8C-av-oHX" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUF-Wm-fbP" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="101" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrD-g1-7WF" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="202" y="0.0" width="91" height="113"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDH-cy-tRl" customClass="CardButton" customModule="Assignment2_Set" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="91" height="113"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZV7-uJ-jpG" secondAttribute="trailing" constant="10" id="0v0-X7-kCW"/>
+                            <constraint firstItem="ZV7-uJ-jpG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2pE-h4-UDz"/>
+                            <constraint firstItem="JKY-Sv-t2O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6Aj-DV-byK"/>
+                            <constraint firstItem="ZV7-uJ-jpG" firstAttribute="leading" secondItem="W8d-Mz-y3c" secondAttribute="trailing" constant="10" id="92g-Nj-Tim"/>
+                            <constraint firstItem="W8d-Mz-y3c" firstAttribute="top" secondItem="JKY-Sv-t2O" secondAttribute="bottom" id="QSk-TI-9x0"/>
+                            <constraint firstItem="ZV7-uJ-jpG" firstAttribute="top" secondItem="W8d-Mz-y3c" secondAttribute="top" id="Zgy-zW-Rte"/>
+                            <constraint firstItem="W8d-Mz-y3c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="dSB-Ts-jeZ"/>
+                            <constraint firstItem="W8d-Mz-y3c" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qhP-tO-CiU"/>
+                            <constraint firstItem="JKY-Sv-t2O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="sKe-1e-nAw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JKY-Sv-t2O" secondAttribute="trailing" constant="10" id="vlj-pf-XOc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="contentStackView" destination="JKY-Sv-t2O" id="pFT-GC-d71"/>
+                        <outletCollection property="innerStackViews" destination="CRB-MJ-w8c" collectionClass="NSMutableArray" id="gEb-En-XW1"/>
+                        <outletCollection property="innerStackViews" destination="nZ4-lj-fAl" collectionClass="NSMutableArray" id="YlP-6s-HiW"/>
+                        <outletCollection property="cardButtons" destination="7a7-Gq-xFY" collectionClass="NSMutableArray" id="ui0-hi-Vw7"/>
+                        <outletCollection property="cardButtons" destination="Q25-ny-h5M" collectionClass="NSMutableArray" id="iwT-jk-5Fo"/>
+                        <outletCollection property="cardButtons" destination="Ghz-X9-XSn" collectionClass="NSMutableArray" id="Zpe-tZ-Tfc"/>
+                        <outletCollection property="cardButtons" destination="iAH-aX-xxK" collectionClass="NSMutableArray" id="NAk-Al-TZL"/>
+                        <outletCollection property="cardButtons" destination="ehi-iw-Z5O" collectionClass="NSMutableArray" id="heD-Mm-orc"/>
+                        <outletCollection property="cardButtons" destination="3r8-Gh-tCR" collectionClass="NSMutableArray" id="g4b-RF-n7f"/>
+                        <outletCollection property="cardButtons" destination="S6D-5f-4eY" collectionClass="NSMutableArray" id="KMS-Wi-Jxm"/>
+                        <outletCollection property="cardButtons" destination="wre-21-vX4" collectionClass="NSMutableArray" id="hjP-QY-0AX"/>
+                        <outletCollection property="cardButtons" destination="nix-ko-5H1" collectionClass="NSMutableArray" id="z34-aY-aoj"/>
+                        <outletCollection property="cardButtons" destination="XRV-QB-zex" collectionClass="NSMutableArray" id="1gS-1v-aGE"/>
+                        <outletCollection property="cardButtons" destination="he9-Mw-r4J" collectionClass="NSMutableArray" id="Bjs-wW-2fD"/>
+                        <outletCollection property="cardButtons" destination="wEb-ty-0rc" collectionClass="NSMutableArray" id="AAL-re-K0Z"/>
+                        <outletCollection property="cardButtons" destination="LRI-9X-RPg" collectionClass="NSMutableArray" id="nBx-Th-SJz"/>
+                        <outletCollection property="cardButtons" destination="VcH-X2-8xW" collectionClass="NSMutableArray" id="atm-9V-1z2"/>
+                        <outletCollection property="cardButtons" destination="lWB-bx-yLI" collectionClass="NSMutableArray" id="LQ8-X8-hiB"/>
+                        <outletCollection property="cardButtons" destination="6kJ-io-cBc" collectionClass="NSMutableArray" id="g07-Gz-9HH"/>
+                        <outletCollection property="cardButtons" destination="XiB-L3-idK" collectionClass="NSMutableArray" id="kOX-3W-vsF"/>
+                        <outletCollection property="cardButtons" destination="wr8-Fl-VwS" collectionClass="NSMutableArray" id="qYo-tr-rrf"/>
+                        <outletCollection property="cardButtons" destination="fxp-zj-VTc" collectionClass="NSMutableArray" id="odB-oT-Ozu"/>
+                        <outletCollection property="cardButtons" destination="g3G-4V-HPJ" collectionClass="NSMutableArray" id="JWR-6v-a6u"/>
+                        <outletCollection property="cardButtons" destination="f8C-av-oHX" collectionClass="NSMutableArray" id="jQT-ly-UZq"/>
+                        <outletCollection property="cardButtons" destination="NUF-Wm-fbP" collectionClass="NSMutableArray" id="D9D-Vg-mES"/>
+                        <outletCollection property="cardButtons" destination="GrD-g1-7WF" collectionClass="NSMutableArray" id="gzY-X4-1u2"/>
+                        <outletCollection property="cardButtons" destination="WDH-cy-tRl" collectionClass="NSMutableArray" id="W7W-7k-Nbi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
         </scene>
     </scenes>
 </document>
