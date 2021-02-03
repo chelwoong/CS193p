@@ -56,28 +56,29 @@ class ConcentrationViewController: UIViewController {
     
     // MARK: - Properties
     
-    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
-    var currentTheme: Theme = .halloween {
+    private lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
+    private lazy var emojiChoices = currentTheme?.emojiChoices
+    private var cardEmoji = [Card:String]()
+    var currentTheme: Theme? {
         didSet {
-            view.backgroundColor = currentTheme.backgroundColor
-            emojiChoices = currentTheme.emojiChoices
+            view.backgroundColor = currentTheme?.backgroundColor
+            emojiChoices = currentTheme?.emojiChoices
             updateViewFromModel()
         }
     }
+    
     @IBOutlet private var cardButtons: [UIButton]!
     @IBOutlet private weak var flipCountLabel: UILabel! {
         didSet {
             updateFlipCountLabel()
         }
     }
-    @IBOutlet weak var scoreLabel: UILabel! {
+    @IBOutlet private weak var scoreLabel: UILabel! {
         didSet {
             updateScoreLabel()
         }
     }
     
-    private lazy var emojiChoices = currentTheme.emojiChoices
-    private var cardEmoji = [Card:String]()
     
     // MARK: - Methods
     
@@ -91,7 +92,7 @@ class ConcentrationViewController: UIViewController {
                 button.backgroundColor = .white
             } else {
                 button.setTitle(" ", for: .normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : currentTheme.tintColor
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : currentTheme?.tintColor
             }
         }
         updateFlipCountLabel()
@@ -101,7 +102,7 @@ class ConcentrationViewController: UIViewController {
     private func updateFlipCountLabel() {
         //    let attributes: [NSAttributedString.Key:Any] = [
         //      .strokeWidth : 5.0,
-        //      .strokeColor : currentTheme.tintColor
+        //      .strokeColor : currentTheme?.tintColor
         //    ]
         //    let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
         //    flipCountLabel.attributedText = attributedString
@@ -112,7 +113,7 @@ class ConcentrationViewController: UIViewController {
         scoreLabel.text = "Score: \(game.score)"
     }
     
-    @IBAction func touchNewGame(_ sender: UIButton) {
+    @IBAction private func touchNewGame(_ sender: UIButton) {
         if let randomTheme = Theme.allCases.randomElement() {
             game = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
             currentTheme = randomTheme
@@ -120,9 +121,10 @@ class ConcentrationViewController: UIViewController {
     }
     
     @IBAction private func touchCard(_ sender: UIButton) {
+        guard emojiChoices != nil else { return }
         if let cardIndex = cardButtons.firstIndex(of: sender) {
-            if cardEmoji[game.cards[cardIndex]] == nil, !emojiChoices.isEmpty {
-                let emojiIndex = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            if cardEmoji[game.cards[cardIndex]] == nil, !emojiChoices!.isEmpty {
+                let emojiIndex = emojiChoices!.remove(at: emojiChoices!.count.arc4random)
                 cardEmoji[game.cards[cardIndex]] = emojiIndex
             }
             game.chooseCard(at: cardIndex)
@@ -134,11 +136,5 @@ class ConcentrationViewController: UIViewController {
         return cardEmoji[card] ?? "?"
     }
     
-    // MARK: - View Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 }
 
