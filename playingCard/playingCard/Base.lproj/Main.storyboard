@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="2L1-m4-Q8c" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="26" y="86" width="60" height="80"/>
+                                <rect key="frame" x="26" y="86" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -29,7 +29,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="e49-rl-j7k" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="210" y="70" width="60" height="80"/>
+                                <rect key="frame" x="210" y="70" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -41,7 +41,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="DCs-v5-HDU" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="26" y="239" width="60" height="80"/>
+                                <rect key="frame" x="26" y="239" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -53,7 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="gY5-Pw-k9e" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="186" y="330" width="60" height="80"/>
+                                <rect key="frame" x="186" y="330" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -65,7 +65,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="cGK-LR-RqL" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="57" y="496" width="60" height="80"/>
+                                <rect key="frame" x="57" y="496" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -77,7 +77,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="44f-oK-g4x" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="194" y="567" width="60" height="80"/>
+                                <rect key="frame" x="194" y="567" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -89,7 +89,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="9CG-B0-nUT" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="157" y="212" width="60" height="80"/>
+                                <rect key="frame" x="157" y="212" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -101,7 +101,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="CgP-a2-d6R" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="260" y="212" width="60" height="80"/>
+                                <rect key="frame" x="260" y="212" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -113,7 +113,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="Azq-gG-7Ow" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="26" y="385" width="60" height="80"/>
+                                <rect key="frame" x="26" y="385" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -125,7 +125,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="eQo-zD-e7k" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="98" y="357" width="60" height="80"/>
+                                <rect key="frame" x="98" y="357" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -137,7 +137,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="Kbi-D1-wLK" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="186" y="449" width="60" height="80"/>
+                                <rect key="frame" x="186" y="449" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -149,7 +149,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" clipsSubviews="YES" contentMode="redraw" id="6Uc-cb-YT3" customClass="PlayingCardView" customModule="playingCard" customModuleProvider="target">
-                                <rect key="frame" x="289" y="449" width="60" height="80"/>
+                                <rect key="frame" x="289" y="449" width="70" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
