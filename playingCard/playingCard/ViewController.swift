@@ -42,6 +42,16 @@ class ViewController: UIViewController {
         return behavior
     }()
     
+    lazy var itemBehavior: UIDynamicItemBehavior = {
+        let behavior = UIDynamicItemBehavior()
+        behavior.allowsRotation = false
+        // 1.0 = 가속도 x, 1.1 부딫힐수록 점점 빨라짐, 0.9 점점 느려짐
+        behavior.elasticity = 1.0
+        behavior.resistance = 0
+        animator.addBehavior(behavior)
+        return behavior
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var cards = [PlayingCard]()
@@ -57,6 +67,7 @@ class ViewController: UIViewController {
             let tap = UITapGestureRecognizer(target: self, action: #selector(flipCard(_:)))
             cardView.addGestureRecognizer(tap)
             collistionBehavior.addItem(cardView)
+            itemBehavior.addItem(cardView)
             let push = UIPushBehavior(items: [cardView], mode: .instantaneous)
             push.angle = (2*CGFloat.pi).arc4random
             push.magnitude = CGFloat(1.0) + CGFloat(2.0).arc4random
