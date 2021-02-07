@@ -41,6 +41,11 @@ class CardBehavior: UIDynamicBehavior {
         push(item)
     }
     
+    func removeItem(_ item: UIDynamicItem) {
+        collistionBehavior.removeItem(item)
+        itemBehavior.removeItem(item)
+    }
+    
     override init() {
         super.init()
         addChildBehavior(collistionBehavior)
