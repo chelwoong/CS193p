@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var deck = PlayingCardDeck()
+    private var deck = PlayingCardDeck()
     
-    @IBOutlet var playingCardViews: [PlayingCardView]!
+    @IBOutlet private var playingCardViews: [PlayingCardView]!
     
     @objc func nextCard(_ recognizer: UISwipeGestureRecognizer) {
         if let chosenCardView = recognizer.view as? PlayingCardView, let card = deck.draw() {
@@ -31,6 +31,17 @@ class ViewController: UIViewController {
             faceUpCardViews[0].suit == faceUpCardViews[1].suit
     }
     
+    lazy var animator: UIDynamicAnimator = {
+        return UIDynamicAnimator(referenceView: view)
+    }()
+    
+    lazy var collistionBehavior: UICollisionBehavior = {
+        let behavior = UICollisionBehavior()
+        behavior.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(behavior)
+        return behavior
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var cards = [PlayingCard]()
@@ -45,6 +56,15 @@ class ViewController: UIViewController {
             cardView.suit = card.suit.rawValue
             let tap = UITapGestureRecognizer(target: self, action: #selector(flipCard(_:)))
             cardView.addGestureRecognizer(tap)
+            collistionBehavior.addItem(cardView)
+            let push = UIPushBehavior(items: [cardView], mode: .instantaneous)
+            push.angle = (2*CGFloat.pi).arc4random
+            push.magnitude = CGFloat(1.0) + CGFloat(2.0).arc4random
+            // push.action이 실행되려면 반드시 push가 힙에 존재해야한다. 그래서 unowned 사용
+            push.action = { [unowned push] in
+                push.dynamicAnimator?.removeBehavior(push)
+            }
+            animator.addBehavior(push)
         }
     }
     
