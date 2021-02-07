@@ -70,8 +70,10 @@ class ViewController: UIViewController {
                     animations: {
                         chosenCardView.isFaceUp = !chosenCardView.isFaceUp
                     }, completion: { finished in
-                        // UIView.transition closure를 잡고있는 게 없으니 순환참조 x
+                        // faceUpCardsViews가 애니메이션 되는 동안 다른 카드를 뒤집으면 거기에 포함되어서 이상하게 동작.
+                        // 따라서 애니메이션 되는 카드는 faceUpCardsViews에 포함되지 않도록 수정하고 진행중인 카드는 지역변수로 잡아서 처리함
                         let cardsToAnimate = self.faceUpCardViews
+                        // UIView.transition closure를 잡고있는 게 없으니 순환참조 x
                         if self.faceUpCardViewsMatch {
                             UIViewPropertyAnimator.runningPropertyAnimator(
                                 withDuration: 0.6,
@@ -103,8 +105,8 @@ class ViewController: UIViewController {
                                     )
                                 }
                             )
-                        } else if self.faceUpCardViews.count == 2 {
-                            self.faceUpCardViews.forEach { faceUpCardView in
+                        } else if cardsToAnimate.count == 2 {
+                            cardsToAnimate.forEach { faceUpCardView in
                                 UIView.transition(
                                     with: faceUpCardView,
                                     duration: 0.6,
