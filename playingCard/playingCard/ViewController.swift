@@ -126,9 +126,9 @@ class ViewController: UIViewController {
 extension CGFloat {
     var arc4random: CGFloat {
         if self > 0 {
-            return CGFloat(arc4random_uniform(UInt32(self)))
+            return CGFloat(arc4random_uniform(UInt32(self*10))/10)
         } else if self < 0 {
-            return -CGFloat(arc4random_uniform(UInt32(abs(self))))
+            return -CGFloat(arc4random_uniform(UInt32(abs(self*10))/10))
         } else {
             return 0
         }
