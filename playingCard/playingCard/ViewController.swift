@@ -40,6 +40,8 @@ class ViewController: UIViewController {
     
     lazy var cardBehavior: CardBehavior = CardBehavior(in: animator)
     
+    private var lastChosenCardView: PlayingCardView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var cards = [PlayingCard]()
@@ -63,6 +65,7 @@ class ViewController: UIViewController {
             case .ended:
                 guard let chosenCardView = recognizer.view as? PlayingCardView, faceUpCardViews.count < 2 else { return }
                 cardBehavior.removeItem(chosenCardView)
+                lastChosenCardView = chosenCardView
                 UIView.transition(
                     with: chosenCardView,
                     duration: 0.6,
@@ -106,17 +109,21 @@ class ViewController: UIViewController {
                                 }
                             )
                         } else if cardsToAnimate.count == 2 {
-                            cardsToAnimate.forEach { faceUpCardView in
-                                UIView.transition(
-                                    with: faceUpCardView,
-                                    duration: 0.6,
-                                    options: [.transitionFlipFromLeft],
-                                    animations: {
-                                        faceUpCardView.isFaceUp = false
-                                    }, completion: { finished in
-                                        self.cardBehavior.addItem(faceUpCardView)
-                                    }
-                                )
+                            // transform이 되는 동안 다른 transform이 개입하면 문제가 생김.
+                            // 따라서 마지막에 선택된 transform이 animation을 제어하도록 추적해줘야함.
+                            if chosenCardView == self.lastChosenCardView {
+                                cardsToAnimate.forEach { faceUpCardView in
+                                    UIView.transition(
+                                        with: faceUpCardView,
+                                        duration: 0.6,
+                                        options: [.transitionFlipFromLeft],
+                                        animations: {
+                                            faceUpCardView.isFaceUp = false
+                                        }, completion: { finished in
+                                            self.cardBehavior.addItem(faceUpCardView)
+                                        }
+                                    )
+                                }
                             }
                         } else {
                             if !chosenCardView.isFaceUp {
