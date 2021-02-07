@@ -21,7 +21,16 @@ class ViewController: UIViewController {
         }
     }
     
-
+    private var faceUpCardViews: [PlayingCardView] {
+        return playingCardViews.filter { $0.isFaceUp && !$0.isHidden }
+    }
+    
+    private var faceUpCardViewsMatch: Bool {
+        return faceUpCardViews.count == 2 &&
+            faceUpCardViews[0].rank == faceUpCardViews[1].rank &&
+            faceUpCardViews[0].suit == faceUpCardViews[1].suit
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var cards = [PlayingCard]()
@@ -38,21 +47,66 @@ class ViewController: UIViewController {
             cardView.addGestureRecognizer(tap)
         }
     }
-
+    
     @objc func flipCard(_ recognizer: UITapGestureRecognizer) {
         switch recognizer.state {
-        case .ended:
-            guard let chosenCardView = recognizer.view as? PlayingCardView else { return }
-            UIView.transition(
-                with: chosenCardView,
-                duration: 0.6,
-                options: [.transitionFlipFromLeft],
-                animations: {
-                    chosenCardView.isFaceUp = !chosenCardView.isFaceUp
-                }
-            )
-        default:
-            break
+            case .ended:
+                guard let chosenCardView = recognizer.view as? PlayingCardView else { return }
+                UIView.transition(
+                    with: chosenCardView,
+                    duration: 0.6,
+                    options: [.transitionFlipFromLeft],
+                    animations: {
+                        chosenCardView.isFaceUp = !chosenCardView.isFaceUp
+                    }, completion: { finished in
+                        // UIView.transition closure를 잡고있는 게 없으니 순환참조 x
+                        if self.faceUpCardViewsMatch {
+                            UIViewPropertyAnimator.runningPropertyAnimator(
+                                withDuration: 0.6,
+                                delay: 0,
+                                options: [],
+                                animations: {
+                                    self.faceUpCardViews.forEach { faceUpCardView in
+                                        faceUpCardView.transform = CGAffineTransform.identity.scaledBy(x: 3.0, y: 3.0)
+                                    }
+                                },
+                                completion: { position in
+                                    UIViewPropertyAnimator.runningPropertyAnimator(
+                                        withDuration: 0.75,
+                                        delay: 0,
+                                        options: [],
+                                        animations: {
+                                            self.faceUpCardViews.forEach {
+                                                $0.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
+                                                $0.alpha = 0
+                                            }
+                                        },
+                                        completion: { position in
+                                            self.faceUpCardViews.forEach {
+                                                $0.isHidden = true
+                                                $0.alpha = 1
+                                                $0.transform = .identity
+                                            }
+                                        }
+                                    )
+                                }
+                            )
+                        } else if self.faceUpCardViews.count == 2 {
+                            self.faceUpCardViews.forEach { faceUpCardView in
+                                UIView.transition(
+                                    with: faceUpCardView,
+                                    duration: 0.6,
+                                    options: [.transitionFlipFromLeft],
+                                    animations: {
+                                        faceUpCardView.isFaceUp = false
+                                    }
+                                )
+                            }
+                        }
+                    }
+                )
+            default:
+                break
         }
     }
 }
