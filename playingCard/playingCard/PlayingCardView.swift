@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class PlayingCardView: UIView {
     
     @IBInspectable  // 스토리보드 인스펙터에 추가
